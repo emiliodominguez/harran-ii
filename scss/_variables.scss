@@ -1,0 +1,108 @@
+$block-size: 300px;
+
+$border-width: $block-size / 10;
+
+$line-border-width: 1px;
+
+$block-1: (
+    main: #b9c1e5,
+    primary-content: (
+        1: #aaa4a8,
+        2: #fe6faf,
+        3: #587dc4,
+        4: #e54a69,
+        5: #ded28a,
+        6: #59ae53,
+        7: #fef3d5,
+    ),
+);
+
+$block-2: (
+    main: #f6981e,
+    primary-content: (
+        1: #aaa4a8,
+        2: #fe6faf,
+        3: #587dc4,
+        4: #e54a69,
+        5: #ded28a,
+        6: #59ae53,
+    ),
+    secondary-content: (
+        1: #6fa7ca,
+        2: #fccd29,
+        3: #c36796,
+        4: #9c949f,
+        5: #7780c1,
+        6: #764c3e,
+        7: #ea6084,
+    ),
+);
+
+$block-3: (
+    main: #32728d,
+    primary-content: (
+        1: #e4432f,
+        2: #79a779,
+        3: #bb9e7c,
+        4: #336eb4,
+        5: #d6b7a2,
+        6: #f47353,
+        7: #82a4b0,
+    ),
+);
+
+$block-4: (
+    main: #8e4b76,
+    primary-content: (
+        1: #6fa7ca,
+        2: #fccd29,
+        3: #c36796,
+        4: #9c949f,
+        5: #7780c1,
+        6: #764c3e,
+        7: #ea6084,
+    ),
+);
+
+$block-5: (
+    main: #b0b59f,
+    primary-content: (
+        1: #e4432f,
+        2: #79a779,
+        3: #bb9e7c,
+        4: #336eb4,
+        5: #d6b7a2,
+        6: #f47353,
+    ),
+    secondary-content: (
+        1: #4e4757,
+        2: #a69b97,
+        3: #d46f39,
+        4: #574e8f,
+        5: #eba708,
+        6: #bbc68a,
+        7: #c99951,
+    ),
+);
+
+$block-6: (
+    main: #df4e6f,
+    primary-content: (
+        1: #4e4757,
+        2: #a69b97,
+        3: #d46f39,
+        4: #574e8f,
+        5: #eba708,
+        6: #bbc68a,
+        7: #c99951,
+    ),
+);
+
+$blocks: (
+    1: $block-1,
+    2: $block-2,
+    3: $block-3,
+    4: $block-4,
+    5: $block-5,
+    6: $block-6,
+);

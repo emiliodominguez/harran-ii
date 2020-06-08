@@ -1,0 +1,20 @@
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+
+    @return $map;
+}
+
+@function generate_lines($colors, $width, $border-width: 1) {
+    $lines: ();
+
+    @each $i, $color in $colors {
+        $line-size: ($width + (length($colors) - 3)) * $i;
+        $new_line: 0 0 0 $line-size $color,
+                   0 0 0 $line-size + ($border-width) #fff; // 1px white border line
+        $lines: append($lines, $new_line, comma);
+    }
+
+    @return $lines;
+}

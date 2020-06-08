@@ -1,0 +1,115 @@
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    &::after,
+    &::before {
+        content: "";
+    }
+
+    &::after {
+        grid-row: 1;
+        grid-column: 4;
+    }
+
+    &::before {
+        grid-row: 2;
+        grid-column: 1;
+    }
+}
+
+.block {
+    position: relative;
+    width: $block-size;
+    height: $block-size;
+    border: $border-width solid;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 1px #fff inset;
+    overflow: hidden;
+
+    @each $i, $block in $blocks {
+        &:nth-child(#{$i}) {
+            border-color: map-deep-get($block, "main");
+
+            @if (map-deep-get($block, "secondary-content")) {
+                &::before {
+                    box-shadow: generate_lines(
+                        map-deep-get($block, "secondary-content"),
+                        $border-width
+                    );
+                }
+            }
+
+            &::after {
+                box-shadow: generate_lines(
+                    map-deep-get($block, "primary-content"),
+                    $border-width
+                );
+            }
+        }
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: $border-width;
+        height: $border-width;
+        z-index: -1;
+    }
+
+    &.rounded-bottom-left {
+        border-radius: 0 0 0 $block-size;
+    }
+
+    &.rounded-top-right {
+        border-radius: 0 $block-size 0 0;
+    }
+
+    &.content-from-top-right {
+        &::after {
+            top: -$border-width;
+            right: -$border-width;
+            border-radius: 0 0 0 $block-size;
+        }
+    }
+
+    &.content-from-top-left {
+        &::before {
+            bottom: -$border-width;
+            right: -$border-width;
+            border-radius: $block-size 0 0 0;
+        }
+
+        &::after {
+            top: -$border-width;
+            left: -$border-width;
+            border-radius: 0 0 $block-size 0;
+        }
+    }
+
+    &.content-from-bottom-left {
+        &::after {
+            bottom: -$border-width;
+            left: -$border-width;
+            border-radius: 0 $block-size 0 0;
+        }
+    }
+
+    &.content-from-bottom-right {
+        &::after {
+            bottom: -$border-width;
+            right: -$border-width;
+            border-radius: $block-size 0 0 0;
+        }
+    }
+}
