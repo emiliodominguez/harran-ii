@@ -6,13 +6,23 @@
     @return $map;
 }
 
-@function generate_lines($colors, $width, $border-width: 1) {
+@function generate_lines(
+    $colors,
+    $width,
+    $isSecondary: false,
+    $line-thickness: 1
+) {
     $lines: ();
 
     @each $i, $color in $colors {
-        $line-size: ($width + (length($colors) - 3)) * $i;
+        $line-size: ($width * $i) - 1.5;
+
+        @if ($isSecondary and $i == length($colors)) {
+            $line-size: $width * 10;
+        }
+
         $new_line: 0 0 0 $line-size $color,
-                   0 0 0 $line-size + ($border-width) #fff; // 1px white border line
+                   0 0 0 $line-size + ($line-thickness) #fff; // 1px white border line
         $lines: append($lines, $new_line, comma);
     }
 

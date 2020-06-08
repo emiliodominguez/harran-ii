@@ -1,6 +1,7 @@
 .main-container {
     width: 100%;
     min-height: 100vh;
+    padding: 25px;
 
     display: flex;
     flex-direction: column;
@@ -32,27 +33,30 @@
     position: relative;
     width: $block-size;
     height: $block-size;
-    border: $border-width solid;
+    border: $line-thickness solid;
     box-shadow: 0 0 0 1px #fff, 0 0 0 1px #fff inset;
     overflow: hidden;
 
     @each $i, $block in $blocks {
         &:nth-child(#{$i}) {
-            border-color: map-deep-get($block, "main");
+            border-color: map-deep-get($block, "color");
 
             @if (map-deep-get($block, "secondary-content")) {
                 &::before {
+                    background-color: nth(map-values(map-deep-get($block, "secondary-content")), 1);
                     box-shadow: generate_lines(
                         map-deep-get($block, "secondary-content"),
-                        $border-width
+                        $line-thickness,
+                        true
                     );
                 }
             }
 
             &::after {
+                background-color: nth(map-values(map-deep-get($block, "primary-content")), 1);
                 box-shadow: generate_lines(
                     map-deep-get($block, "primary-content"),
-                    $border-width
+                    $line-thickness
                 );
             }
         }
@@ -62,8 +66,8 @@
     &::after {
         content: "";
         position: absolute;
-        width: $border-width;
-        height: $border-width;
+        width: 60px;
+        height: 60px;
         z-index: -1;
     }
 
@@ -77,38 +81,38 @@
 
     &.content-from-top-right {
         &::after {
-            top: -$border-width;
-            right: -$border-width;
+            top: -$line-thickness;
+            right: -$line-thickness;
             border-radius: 0 0 0 $block-size;
         }
     }
 
     &.content-from-top-left {
         &::before {
-            bottom: -$border-width;
-            right: -$border-width;
+            bottom: -$line-thickness;
+            right: -$line-thickness;
             border-radius: $block-size 0 0 0;
         }
 
         &::after {
-            top: -$border-width;
-            left: -$border-width;
+            top: -$line-thickness;
+            left: -$line-thickness;
             border-radius: 0 0 $block-size 0;
         }
     }
 
     &.content-from-bottom-left {
         &::after {
-            bottom: -$border-width;
-            left: -$border-width;
+            bottom: -$line-thickness;
+            left: -$line-thickness;
             border-radius: 0 $block-size 0 0;
         }
     }
 
     &.content-from-bottom-right {
         &::after {
-            bottom: -$border-width;
-            right: -$border-width;
+            bottom: -$line-thickness;
+            right: -$line-thickness;
             border-radius: $block-size 0 0 0;
         }
     }
