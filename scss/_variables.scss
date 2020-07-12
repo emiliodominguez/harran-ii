@@ -3,7 +3,7 @@ $block-size: 300px;
 $line-thickness: $block-size / 10;
 
 $block-1: (
-    color: #b9c1e5,
+    border-color: #b9c1e5,
     primary-content: (
         1: #aaa4a8,
         2: #fe6faf,
@@ -11,19 +11,23 @@ $block-1: (
         4: #e54a69,
         5: #ded28a,
         6: #59ae53,
-        7: #fef3d5,
-    ),
+        7: #fef3d5
+    )
 );
 
 $block-2: (
-    color: #f6981e,
+    border-color: #f6981e,
+    background-color: (
+        #fef3d5,
+        #ea6084
+    ),
     primary-content: (
         1: #aaa4a8,
         2: #fe6faf,
         3: #587dc4,
         4: #e54a69,
         5: #ded28a,
-        6: #59ae53,
+        6: #59ae53
     ),
     secondary-content: (
         1: #6fa7ca,
@@ -31,13 +35,12 @@ $block-2: (
         3: #c36796,
         4: #9c949f,
         5: #7780c1,
-        6: #764c3e,
-        7: #ea6084,
-    ),
+        6: #764c3e
+    )
 );
 
 $block-3: (
-    color: #32728d,
+    border-color: #32728d,
     primary-content: (
         1: #e4432f,
         2: #79a779,
@@ -45,12 +48,12 @@ $block-3: (
         4: #336eb4,
         5: #d6b7a2,
         6: #f47353,
-        7: #82a4b0,
-    ),
+        7: #82a4b0
+    )
 );
 
 $block-4: (
-    color: #8e4b76,
+    border-color: #8e4b76,
     primary-content: (
         1: #6fa7ca,
         2: #fccd29,
@@ -58,19 +61,23 @@ $block-4: (
         4: #9c949f,
         5: #7780c1,
         6: #764c3e,
-        7: #ea6084,
-    ),
+        7: #ea6084
+    )
 );
 
 $block-5: (
-    color: #b0b59f,
+    border-color: #b0b59f,
+    background-color: (
+        #c99951,
+        #82a4b0
+    ),
     primary-content: (
         1: #e4432f,
         2: #79a779,
         3: #bb9e7c,
         4: #336eb4,
         5: #d6b7a2,
-        6: #f47353,
+        6: #f47353
     ),
     secondary-content: (
         1: #4e4757,
@@ -78,13 +85,12 @@ $block-5: (
         3: #d46f39,
         4: #574e8f,
         5: #eba708,
-        6: #bbc68a,
-        7: #c99951,
-    ),
+        6: #bbc68a
+    )
 );
 
 $block-6: (
-    color: #df4e6f,
+    border-color: #df4e6f,
     primary-content: (
         1: #4e4757,
         2: #a69b97,
@@ -92,8 +98,8 @@ $block-6: (
         4: #574e8f,
         5: #eba708,
         6: #bbc68a,
-        7: #c99951,
-    ),
+        7: #c99951
+    )
 );
 
 $blocks: (
@@ -102,5 +108,5 @@ $blocks: (
     3: $block-3,
     4: $block-4,
     5: $block-5,
-    6: $block-6,
+    6: $block-6
 );

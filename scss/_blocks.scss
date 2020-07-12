@@ -39,25 +39,39 @@
 
     @each $i, $block in $blocks {
         &:nth-child(#{$i}) {
-            border-color: map-deep-get($block, "color");
+            border-color: map-deep-get($block, "border-color");
+
+            @if (map-deep-get($block, "background-color")) {
+                background-image: conic-gradient(
+                    nth(map-deep-get($block, "background-color"), 1) 50%,
+                    nth(map-deep-get($block, "background-color"), 2) 50%
+                );
+            }
 
             @if (map-deep-get($block, "secondary-content")) {
                 &::before {
-                    background-color: nth(map-values(map-deep-get($block, "secondary-content")), 1);
+                    background-color: nth(
+                        map-values(map-deep-get($block, "secondary-content")),
+                        1
+                    );
                     box-shadow: generate_lines(
                         map-deep-get($block, "secondary-content"),
-                        $line-thickness,
-                        true
+                        $line-thickness
                     );
+                    z-index: 1;
                 }
             }
 
             &::after {
-                background-color: nth(map-values(map-deep-get($block, "primary-content")), 1);
+                background-color: nth(
+                    map-values(map-deep-get($block, "primary-content")),
+                    1
+                );
                 box-shadow: generate_lines(
                     map-deep-get($block, "primary-content"),
                     $line-thickness
                 );
+                z-index: 2;
             }
         }
     }
@@ -68,7 +82,6 @@
         position: absolute;
         width: 60px;
         height: 60px;
-        z-index: -1;
     }
 
     &.rounded-bottom-left {
